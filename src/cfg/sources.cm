@@ -1,0 +1,44 @@
+(* sources.cm
+ *
+ * COPYRIGHT (c) 2024 John Reppy (https://cs.uchicago.edu/~jhr)
+ * All rights reserved.
+ *
+ * Sample code
+ * CMSC 22600
+ * Spring 2024
+ * University of Chicago
+ *)
+
+Library
+
+  signature CFG
+
+  structure CFG
+  structure CFGFrag
+  structure CFGFunct
+  structure CFGLabel
+  structure CFGUtil
+  structure CFGVar
+  structure CheckCFG
+  structure DumpCFG
+  structure PrintCFG
+
+is
+
+  $/basis.cm
+  $/smlnj-lib.cm
+  $/sexp-lib.cm
+
+  ../common/sources.cm
+  ../prim/sources.cm
+
+  cfg.sml
+  cfg-frag.sml
+  cfg-funct.sml
+  cfg-label.sml
+  cfg-rep.sml
+  cfg-util.sml
+  cfg-var.sml
+  check-cfg.sml
+  dump-cfg.sml
+  print-cfg.sml

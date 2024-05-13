@@ -1,0 +1,27 @@
+(* sources.cm
+ *
+ * COPYRIGHT (c) 2024 John Reppy (http://cs.uchicago.edu/~jhr)
+ * All rights reserved.
+ *
+ * Sample code
+ * CMSC 22600
+ * Spring 2024
+ * University of Chicago
+ *)
+
+Library
+
+  structure BindBasis
+  structure Binding
+
+is
+
+  $/basis.cm
+  $/smlnj-lib.cm
+
+  ../bind-tree/sources.cm
+  ../common/sources.cm
+  ../parse-tree/sources.cm
+
+  binding.sml
+  context.sml

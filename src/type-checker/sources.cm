@@ -1,0 +1,35 @@
+(* sources.cm
+ *
+ * COPYRIGHT (c) 2024 John Reppy (http://cs.uchicago.edu/~jhr)
+ * All rights reserved.
+ *
+ * Sample code
+ * CMSC 22600
+ * Spring 2024
+ * University of Chicago
+ *
+ * Sources file for MiniML type checker
+ *)
+
+Library
+
+  structure TypeChecker
+
+is
+
+  $/basis.cm
+  $/smlnj-lib.cm
+
+  ../ast/sources.cm
+  ../bind-tree/sources.cm
+  ../common/sources.cm
+
+  chk-exp.sml
+  chk-pat.sml
+  chk-ty.sml
+  context.sml
+  coverage.sml
+  id-props.sml
+  type-checker.sml
+  type-util.sml
+  unify.sml

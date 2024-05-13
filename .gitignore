@@ -1,3 +1,18 @@
+## SML/NJ stuff ##
+.cm/
+
+## macOS finder
+.DS_Store
+
+## generated lexer and parser
+src/parser/mml.grm.sml
+src/parser/mml.lex.sml
+
+## heap image
+bin/mlc.amd64-linux
+bin/mlc.amd64-darwin
+bin/mlc.x86-win32
+
 # Prerequisites
 *.d
 

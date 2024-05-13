@@ -1,0 +1,46 @@
+(* sources.cm
+ *
+ * COPYRIGHT (c) 2024 John Reppy (http://cs.uchicago.edu/~jhr)
+ * All rights reserved.
+ *
+ * Sample code
+ * CMSC 22600
+ * Spring 2024
+ * University of Chicago
+ *
+ * Sources file for MiniML typed AST IR
+ *)
+
+Library
+
+  structure AST
+  structure Basis
+  structure DataCon
+  structure DumpAST
+  structure Exp
+  structure MetaVar
+  structure TyCon
+  structure Type
+  structure TyVar
+  structure Var
+
+is
+
+  $/basis.cm
+  $/smlnj-lib.cm
+  $/sexp-lib.cm
+
+  ../bind-tree/sources.cm
+  ../common/sources.cm
+
+  ast.sml
+  basis.sml
+  data-con.sml
+  dump-ast.sml
+  exp.sml
+  meta-var.sml
+  ty-con.sml
+  ty-var.sml
+  type.sml
+  type-rep.sml
+  var.sml

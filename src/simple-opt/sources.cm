@@ -1,0 +1,25 @@
+(* sources.cm
+ *
+ * COPYRIGHT (c) 2024 John Reppy (http://cs.uchicago.edu/~jhr)
+ * All rights reserved.
+ *
+ * Sample code
+ * CMSC 22600
+ * Spring 2024
+ * University of Chicago
+ *)
+
+Library
+
+  structure SimpleOpt
+
+is
+
+  $/basis.cm
+  $/smlnj-lib.cm
+
+  ../prim/sources.cm
+  ../simple-ast/sources.cm
+
+  contract.sml
+  simple-opt.sml

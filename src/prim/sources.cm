@@ -1,0 +1,32 @@
+(* sources.cm
+ *
+ * COPYRIGHT (c) 2024 John Reppy (http://cs.uchicago.edu/~jhr)
+ * All rights reserved.
+ *
+ * Sample code
+ * CMSC 22600
+ * Spring 2024
+ * University of Chicago
+ *
+ * The sources file for the primitive library, which is shared
+ * by the SimpleAST and CFG IRs.  Primitives include machine-level
+ * operations, such as addition and multiplication, and runtime
+ * system functions.
+ *)
+
+Library
+
+  structure Prim
+  structure PrimCond
+  structure PrimType
+  structure Runtime
+
+is
+
+  $/basis.cm
+  $/smlnj-lib.cm
+
+  prim.sml
+  prim-cond.sml
+  prim-type.sml
+  runtime.sml

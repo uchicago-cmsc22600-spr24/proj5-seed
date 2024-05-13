@@ -1,0 +1,36 @@
+(* sources.cm
+ *
+ * COPYRIGHT (c) 2024 John Reppy (http://cs.uchicago.edu/~jhr)
+ * All rights reserved.
+ *
+ * Sample code
+ * CMSC 22600
+ * Spring 2024
+ * University of Chicago
+ *)
+
+Library
+
+  structure Error
+  structure Options
+  structure ProgPt
+  structure Stamp
+
+  (* debugging support *)
+  functor IdGenFn
+  structure DumpUtil
+
+is
+
+  $/basis.cm
+  $/smlnj-lib.cm
+  $/pp-lib.cm
+  $/sexp-lib.cm
+  $/ml-lpt-lib.cm
+
+  dump-util.sml
+  error.sml
+  id-gen-fn.sml
+  options.sml
+  prog-pt.sml
+  stamp.sml

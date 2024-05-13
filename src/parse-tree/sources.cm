@@ -1,0 +1,29 @@
+(* sources.cm
+ *
+ * COPYRIGHT (c) 2024 John Reppy (http://cs.uchicago.edu/~jhr)
+ * All rights reserved.
+ *
+ * Sample code
+ * CMSC 22600
+ * Spring 2024
+ * University of Chicago
+ *)
+
+Library
+
+  structure DumpParseTree
+  structure OpNames
+  structure ParseTree
+
+is
+
+  $/basis.cm
+  $/smlnj-lib.cm
+  $/sexp-lib.cm
+  $/ml-lpt-lib.cm
+
+  ../common/sources.cm
+
+  dump-parse-tree.sml
+  op-names.sml
+  parse-tree.sml

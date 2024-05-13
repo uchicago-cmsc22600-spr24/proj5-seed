@@ -1,0 +1,30 @@
+(* sources.cm
+ *
+ * COPYRIGHT (c) 2024 John Reppy (http://cs.uchicago.edu/~jhr)
+ * All rights reserved.
+ *
+ * Sample code
+ * CMSC 22600
+ * Spring 2024
+ * University of Chicago
+ *)
+
+Library
+
+  structure Convert
+
+is
+
+  $/basis.cm
+  $/smlnj-lib.cm
+  $/sexp-lib.cm
+
+  ../cfg/sources.cm
+  ../common/sources.cm
+  ../prim/sources.cm
+  ../simple-ast/sources.cm
+
+  case-split.sml
+  convert.sml
+  env.sml
+  live-var-analysis.sml

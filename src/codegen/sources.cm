@@ -1,0 +1,31 @@
+(* sources.cm
+ *
+ * COPYRIGHT (c) 2024 John Reppy (https://cs.uchicago.edu/~jhr)
+ * All rights reserved.
+ *
+ * Sample code
+ * CMSC 22600
+ * Spring 2024
+ * University of Chicago
+ *)
+
+Library
+
+  structure CodeGen
+
+is
+
+  $/basis.cm
+  $/smlnj-lib.cm
+
+  ../cfg/sources.cm
+  ../common/sources.cm
+  ../llvm/sources.cm
+  ../prim/sources.cm
+
+  arith-gen.sml
+  code-gen.sml
+  code-gen-info.sml
+  env.sml
+  mml-runtime.sml
+  util.sml

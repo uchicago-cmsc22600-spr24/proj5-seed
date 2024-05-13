@@ -1,0 +1,46 @@
+(* sources.cm
+ *
+ * COPYRIGHT (c) 2024 John Reppy (http://cs.uchicago.edu/~jhr)
+ * All rights reserved.
+ *
+ * Sample code
+ * CMSC 22600
+ * Spring 2024
+ * University of Chicago
+ *)
+
+Library
+
+  structure CaseContract
+  structure CaseInfo
+  structure Census
+  structure CheckSimple
+  structure DumpSimpleAST
+  structure LetFloat
+  structure PrintSimple
+  structure SimpleAST
+  structure SimpleBasis
+  structure SimpleDataCon
+  structure SimpleVar
+
+is
+
+  $/basis.cm
+  $/smlnj-lib.cm
+  $/sexp-lib.cm
+
+  ../ast/sources.cm
+  ../common/sources.cm
+  ../prim/sources.cm
+
+  case-contract.sml
+  case-info.sml
+  census.sml
+  check-simple.sml
+  dump-simple-ast.sml
+  let-float.sml
+  print-simple.sml
+  simple-ast.sml
+  simple-basis.sml
+  simple-data-con.sml
+  simple-var.sml
