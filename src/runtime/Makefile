@@ -16,12 +16,15 @@ CFLAGS		= -g -O2
 C_SRCS		= main.c basis.c gc.c statepoints.c
 OBJS		= $(patsubst %.c,%.o,$(C_SRCS))
 
+LIBDIR		= ../../lib
+
 mml-rt.o:	$(OBJS)
 	$(LD) -r -o mml-rt.o $(OBJS)
 
 .PHONY:		install
 install:	mml-rt.o
-	cp -p mml-rt.o ../lib
+	mkdir $(LIBDIR)
+	cp -p mml-rt.o $(LIBDIR)
 
 main.o:		main.c mini-ml.h
 basis.o:	basis.c mini-ml.h

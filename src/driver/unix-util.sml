@@ -128,12 +128,12 @@ structure UnixUtil : sig
 
     fun runtimePath () = let
           val basePath = Path.getParent (Path.dir (CommandLine.name()))
-          val rtDir = Path.concat(basePath, "src/runtime")
-          val objPath = Path.joinDirFile{dir = rtDir, file = "mml-rt.o"}
+          val libDir = Path.concat(basePath, "lib")
+          val objPath = Path.joinDirFile{dir = libDir, file = "mml-rt.o"}
           fun error msg = (err msg; raise Error.ERROR)
           in
-            if not (FSys.access(rtDir, []))
-              then error ["expected runtime library at '", rtDir, "'\n"]
+            if not (FSys.access(libDir, []))
+              then error ["expected runtime library at '", libDir, "'\n"]
             else if not (FSys.access(objPath, []))
               then error ["runtime library has not been built yet\n"]
               else objPath
