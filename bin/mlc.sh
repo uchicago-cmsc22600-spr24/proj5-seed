@@ -19,4 +19,4 @@ if test ! -r "$HEAP" ; then
   exit 1
 fi
 
-exec sml @SMLcmdname=mlc @SMLload="$HEAP" "$@"
+exec sml @SMLcmdname="$BINDIR/mlc" @SMLload="$HEAP" "$@"
