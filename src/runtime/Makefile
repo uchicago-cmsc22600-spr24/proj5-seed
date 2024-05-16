@@ -23,7 +23,7 @@ mml-rt.o:	$(OBJS)
 
 .PHONY:		install
 install:	mml-rt.o
-	mkdir $(LIBDIR)
+	mkdir -p $(LIBDIR)
 	cp -p mml-rt.o $(LIBDIR)
 
 main.o:		main.c mini-ml.h
