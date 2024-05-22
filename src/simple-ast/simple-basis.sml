@@ -91,7 +91,7 @@ structure SimpleBasis : sig
     in
     val conTrue = mkCon(B.conTrue, [], DC.Enum 1)
     val conFalse = mkCon(B.conFalse, [], DC.Enum 0)
-    val conCons = mkCon(B.conCons, [PTy.anyTy, PTy.anyTy], DC.Transparent PTy.Boxed)
+    val conCons = mkCon(B.conCons, [PTy.anyTy, PTy.anyTy], DC.Tuple 2)
     val conNil = mkCon(B.conNil, [], DC.Enum 0)
     end
 

@@ -154,6 +154,7 @@ structure Main : sig
           (* output closure-converted Simple AST *)
           val _ = dumpClosure (base, simple)
 	  (* convert first-order SimpleAST to CFG *)
+          val _ = say ["convert ", filename, " to CFG\n"]
 	  val cfg = Convert.translate simple
           (* check CFG invariants *)
           val _ = CheckCFG.check cfg

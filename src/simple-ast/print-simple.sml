@@ -71,8 +71,13 @@ structure PrintSimple : sig
                   | S.E_IF(tst, vs, e1, e2) => (
                       prl ["if ", PC.toString tst, "(", valsToS vs, ") then\n"];
                       prExp (n+1, e1);
-                      prIndent n; pr "else\n";
-                      prIndent (n+1); prExp' (n+1, e2))
+                      prIndent n;
+                      case e2
+                       of S.E(_, S.E_IF _) => (pr "else "; prExp'(n, e2))
+                        | _ => (
+                            pr "else\n";
+                            prIndent (n+1); prExp' (n+1, e2))
+                      (* end case *))
                   | S.E_CASE(v, rules) => let
                       fun prRule (p, e) = (
                             prIndent n; pr "| ";

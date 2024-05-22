@@ -45,7 +45,7 @@ structure CaseInfo : sig
       | set _ = raise Fail "CaseInfo.set: not a case expression"
 
     fun get (SimpleAST.E(ppt, SimpleAST.E_CASE _)) = getFn ppt
-      | get _ = raise Fail "CaseInfo.set: not a case expression"
+      | get _ = raise Fail "CaseInfo.get: not a case expression"
 
     fun getKind e = #argKind(get e)
 

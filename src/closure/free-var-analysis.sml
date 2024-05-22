@@ -67,7 +67,6 @@ String.concatWithMap "," V.toString (Set.toList fvsOfF), "}\n"]);
                         Set.subtract (fvs, x)
                       end
                   | S.E_FUN(_, f, params, body, e) => let
-                      val fvsOfBody = anal (body, Set.empty)
                       val fvsOfF = analFB (f, params, body)
                       in
                         Set.subtract(anal (e, Set.union(fvs, fvsOfF)), f)
@@ -108,7 +107,54 @@ String.concatWithMap "," V.toString (Set.toList fvsOfF), "}\n"]);
             walk e
           end
 
+    (* after we have computed the free variables in the body of a top-level
+     * function, we remove any references to known functions with empty
+     * closures.  This process is implemented as fixed-point computation
+     * over the bound functions in the program.
+     *)
+    fun pruneFVS e = let
+          (* compute a set of all of the functions in the program *)
+          val allFns = let
+                fun accum (S.E(_, e), fns) = (case e
+                      of S.E_LET(_, S.R_EXP e1, e2) => accum (e2, accum(e1, fns))
+                       | S.E_LET(_, _, e) => accum (e, fns)
+                       | S.E_FUN(_, f, _, body, e) => accum (e, accum(body, f::fns))
+                       | S.E_APPLY(f, vs) => fns
+                       | S.E_IF(_, vs, e1, e2) => accum (e2, accum(e1, fns))
+                       | S.E_CASE(v, rules) =>
+                           List.foldl (fn ((_, e), fns) => accum(e, fns)) fns rules
+                       | S.E_RET v => fns
+                     (* end case *))
+                in
+                  Set.fromList (accum (e, []))
+                end
+          (* test to see if a free variable should be kept in the set of free variables.
+           * The conditions for removal are that the variable is not a fun-bound
+           * variable, or not a known function, or has a non-empty closure.
+           *)
+          fun keep x = not(Set.member(allFns, x))
+                orelse (V.useCntOf x > Census.appCntOf x)
+                orelse not(hasNoFreeVars x)
+          val anyChange = ref false
+          fun updateFVs f = let
+                val fvs = Set.filter keep (getFreeVars f)
+                in
+                  setFreeVars (f, fvs);
+                  if Set.isEmpty fvs
+                    then (anyChange := true; false)
+                    else true
+                end
+          fun lp wlist = let
+                  val () = anyChange := false
+                  val wlist' = List.filter updateFVs wlist
+                  in
+                    if !anyChange then lp wlist' else ()
+                  end
+          in
+            lp (Set.foldl (fn (x, wl) => if keep x then x::wl else wl) [] allFns)
+          end
+
     (* free vars analysis *)
-    fun analyze (S.PROG(_, e)) = freeVars e
+    fun analyze (S.PROG(_, e)) = (freeVars e; pruneFVS e)
 
   end
